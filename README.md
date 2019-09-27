@@ -1,3 +1,3 @@
 # CareerPath
 
-Simple Problems solved in Python just for logic practice.
+Simple Problems solved in Python just for factory engineering.
