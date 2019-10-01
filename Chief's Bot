@@ -1,0 +1,40 @@
+'''
+
+
+Chief's bot is playing an old DOS based game. There is a row of buildings of different heights arranged at each index along a number line. The bot starts at building 0 and at a height of 0. You must determine the minimum energy his bot needs at the start so that he can jump to the top of each building without his energy going below zero.
+
+Units of height relate directly to units of energy. The bot's energy level is calculated as follows:
+
+If the bot's botEnergy is less than the height of the building, his newEnergy = botEnergy - (height - botEnergy)
+If the bot's botEnergy is greater than the height of the building, his newEnergy = botEnergy + (botEnergy - height)
+For example, building heights are given as h = [2, 3, 4, 3, 2]. If the bot starts with 4, we get the following table:
+
+botEnergy   height  delta
+4               2       +2
+6               3       +3
+9               4       +5
+14              3       +11
+25              2       +23
+48
+That allows the bot to complete the course, but may not be the minimum starting value. The minimum starting botEnergy in this case is 3.
+
+'''
+
+import math
+
+# Complete the chiefHopper function below.
+def chiefHopper(arr):
+    energy = 0
+    
+    for height in arr[::-1]:
+        energy = math.ceil((energy + height)/2)
+    
+    return energy
+    
+if __name__ == '__main__':
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = chiefHopper(arr)
+    print(result)
